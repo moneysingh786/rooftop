@@ -5,6 +5,8 @@ register = template.Library()
 
 @register.filter(name='proper_paginate')
 def proper_paginate(paginator, current_page, neighbors=10):
+    print(" ******** Current Page :- "+str(current_page))
+    print("********* Neighbours Page :- "+str(neighbors))
     if paginator.num_pages > 2*neighbors:
         start_index = max(1, current_page-neighbors)
         end_index = min(paginator.num_pages, current_page + neighbors)
@@ -19,5 +21,6 @@ def proper_paginate(paginator, current_page, neighbors=10):
             start_index -= (end_index-paginator.num_pages)
             end_index = paginator.num_pages
         page_list = [f for f in range(start_index, end_index+1)]
+        print("******* Page Range :- "+str(page_list[:(2*neighbors + 1)]))
         return page_list[:(2*neighbors + 1)]
     return paginator.page_range
