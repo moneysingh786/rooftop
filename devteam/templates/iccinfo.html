@@ -165,7 +165,7 @@
                       {% for order in orders %}
                         <tr>
                           <th scope="row">{{ order.ID }}</th>
-                          <td>{{ order.ItemDescription}}</td>
+                          <td>{{ order.ItemDescription|capfirst|title}}</td>
                           <td>{{ order.ItemType}}</td>
                           <td>{{ order.ItemFullDescription }}</td>
                         </tr>
