@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tigrillo'
+    'tigrillo',
+    'django_extensions',
+    'django_tables2'
 ]
 
 MIDDLEWARE = [
@@ -48,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.middleware.cache.UpdateCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'devteam.urls'
@@ -83,6 +86,14 @@ DATABASES = {
         'PASSWORD': '123asdZXC$',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
+    },
+    'ordering': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Ordering',
+        'USER': 'maggu',
+        'PASSWORD': '123asdZXC$',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
     }
 }
 
@@ -103,7 +114,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+#
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+#         'LOCATION': '127.0.0.1:11211',
+#     }
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
